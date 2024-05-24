@@ -1,0 +1,12 @@
+[Unit]
+Description=Fake TPM
+
+[Service]
+Environment=TPMSTATE=/var/lib/faketpm
+EnvironmentFile=-/etc/sysconfig/faketpm
+ExecStartPre=-/bin/swtpm_setup --tpmstate $TPMSTATE --create-ek-cert --create-platform-cert --tpm2
+ExecStartPre=/sbin/modprobe tpm_vtpm_proxy
+ExecStart=/bin/swtpm chardev --vtpm-proxy --tpmstate dir=${TPMSTATE} --tpm2 --ctrl type=tcp,port=2322
+
+[Install]
+WantedBy=multi-user.target

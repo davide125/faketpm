@@ -1,0 +1,9 @@
+policy_module(faketpm,0.0.1)
+
+gen_require(`
+        type init_t;
+        type swtpm_exec_t;
+')
+
+#============= init_t ==============
+allow init_t swtpm_exec_t:file { execute execute_no_trans map open read };
