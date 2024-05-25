@@ -10,3 +10,4 @@ faketpm\.spec
 faketpm-*\.tar\.gz
 faketpm-*\.src\.rpm
 noarch/
+SRPMS/

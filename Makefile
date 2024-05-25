@@ -16,7 +16,9 @@ all: $(SELINUX_MODULE)
 
 clean:
 	rm -f $(SELINUX_TARGET).{fc,if,tc,pp,pp.bz2}
-	rm -rf tmp
+	rm -rf tmp/
+	rm -f faketpm-*.{spec,tar.gz,noarch.rpm,src.rpm}
+	rm -rf noarch/ SRPMS/
 
 install:
 	install -Dpm0644 -t $(DESTDIR)$(UNITDIR) faketpm.service
