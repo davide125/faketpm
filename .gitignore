@@ -1,6 +1,12 @@
 tmp/
-faketpm.tc
-faketpm.pp
-faketpm.pp.bz2
-faketpm.fc
-faketpm.if
+faketpm\.tc
+faketpm\.pp
+faketpm\.pp\.bz2
+faketpm\.fc
+faketpm\.if
+
+# Packit
+faketpm\.spec
+faketpm-*\.tar\.gz
+faketpm-*\.src\.rpm
+noarch/

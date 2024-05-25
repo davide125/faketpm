@@ -1,0 +1,35 @@
+# See the documentation for more information:
+# https://packit.dev/docs/configuration/
+
+specfile_path: faketpm.spec
+files_to_sync:
+  - faketpm.spec
+  - .packit.yaml
+
+actions:
+  # Fetch the specfile from Rawhide, drop any patches and disable rpmautospec
+  post-upstream-clone: "bash -c \"curl -s https://src.fedoraproject.org/rpms/faketpm/raw/main/f/faketpm.spec | sed -e '/^Patch:/d' -e '/^%autochangelog$/d' > faketpm.spec\""
+
+srpm_build_deps:
+  - bash
+  - coreutils
+  - curl
+  - grep
+  - sed
+
+jobs:
+- job: copr_build
+  trigger: commit
+  owner: dcavalca
+  project: faketpm
+  targets:
+    - fedora-latest-stable-aarch64
+    - fedora-latest-stable-i386
+    - fedora-latest-stable-ppc64le
+    - fedora-latest-stable-s390x
+    - fedora-latest-stable-x86_64
+    - fedora-development-aarch64
+    - fedora-development-i386
+    - fedora-development-ppc64le
+    - fedora-development-s390x
+    - fedora-development-x86_64
