@@ -23,13 +23,4 @@ jobs:
   owner: dcavalca
   project: faketpm
   targets:
-    - fedora-latest-stable-aarch64
-    - fedora-latest-stable-i386
-    - fedora-latest-stable-ppc64le
-    - fedora-latest-stable-s390x
-    - fedora-latest-stable-x86_64
-    - fedora-development-aarch64
-    - fedora-development-i386
-    - fedora-development-ppc64le
-    - fedora-development-s390x
-    - fedora-development-x86_64
+    - fedora-all
